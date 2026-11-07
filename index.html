@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Core · A smart-casual career approach</title>
+<meta name="description" content="Core is a one-on-one mentorship by Islam ElDessouky for people who want a career that looks and sounds like them. Applications open for the 2027 pilot.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Core · A smart-casual career approach">
+<meta property="og:description" content="Core is a one-on-one mentorship by Islam ElDessouky for people who want a career that looks and sounds like them. Applications open for the 2027 pilot.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0B0B">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,900,0..100,0..1&family=Inter+Tight:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: alternating Ink and Paper bands on one centred column, double rules like a record sleeve; the brand's own system, no accent colour. */
+:root {
+  --ink: #0B0B0B;
+  --tux: #1C1C1C;
+  --paper: #F4F1EA;
+  --smoke: #8C8A85;   /* labels on ink only */
+  --grey: #5E5C58;    /* small grey text on paper */
+  --soft: #B8B5AE;    /* body copy on ink */
+  --line: #3A3936;
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --body: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(64px, 9vw, 120px); }
+.band.dark { background: var(--ink); color: var(--paper); }
+
+.display {
+  font-family: var(--display);
+  font-weight: 900;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-wrap: balance;
+  margin: 0;
+}
+.label {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin: 0;
+}
+.dark .label { color: var(--smoke); }
+h2.display { font-size: clamp(40px, 6vw, 72px); }
+p { margin: 0; }
+.prose { display: grid; gap: 18px; max-width: 62ch; }
+.dark .prose, .dark .muted { color: var(--soft); }
+.muted { color: var(--grey); }
+
+.rule2 { display: grid; gap: 4px; }
+.rule2::before, .rule2::after { content: ""; height: 1px; background: currentColor; }
+
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+.dark .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.dark .btn:hover { background: transparent; color: var(--paper); }
+.btn.ghost { background: transparent; color: inherit; border-color: currentColor; min-height: 44px; padding: 0 18px; font-size: 12px; }
+.dark .btn.ghost:hover { background: var(--paper); color: var(--ink); }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 24px 40px; }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand svg { width: 34px; height: 41px; }
+.brand .display { font-size: 32px; line-height: 1; }
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a:not(.btn) {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--soft);
+}
+.nav a:not(.btn):hover { color: var(--paper); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  padding-block: clamp(40px, 7vw, 88px);
+}
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero-word { font-size: clamp(132px, 24vw, 300px); line-height: 0.82; }
+.hero-sub {
+  font-family: var(--mono);
+  font-size: clamp(14px, 1.6vw, 19px);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.hero-lead { font-size: clamp(19px, 2vw, 23px); line-height: 1.45; color: var(--soft); max-width: 34ch; }
+.hero-lead strong { color: var(--paper); font-weight: 500; }
+.ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding-top: 8px; }
+.textlink {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft);
+  text-underline-offset: 6px;
+}
+.hero-mark { justify-self: center; width: min(100%, 380px); }
+.hero-mark svg { width: 100%; height: auto; display: block; }
+.hero-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-top: 22px;
+}
+.tagline { font-size: clamp(24px, 3vw, 36px); line-height: 1.1; }
+
+/* ---------- Mentorship ---------- */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.split > * { min-width: 0; }
+.head { display: grid; gap: 18px; }
+
+/* ---------- Tracks ---------- */
+.tracks-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 40px; margin-bottom: clamp(36px, 5vw, 56px); }
+.tracks-head .head { max-width: 640px; }
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+.track {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 18px;
+  padding: clamp(24px, 3.5vw, 44px);
+  border: 1px solid var(--ink);
+  min-width: 0;
+}
+.track.inverse { background: var(--ink); color: var(--paper); }
+.track.inverse .label { color: var(--smoke); }
+.track.inverse .track-body { color: var(--soft); }
+.track h3 { font-size: clamp(40px, 4.6vw, 58px); }
+.track-body { color: #3A3936; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; }
+.facts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid currentColor;
+  font-size: 15px;
+}
+.facts li span:last-child { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-align: right; }
+.track .places {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  border-top: 1px solid currentColor;
+  padding-top: 16px;
+}
+.track .places .display { font-size: 40px; }
+.pilot-note { margin-top: 28px; max-width: 70ch; }
+
+/* ---------- Who ---------- */
+.who-lines { display: grid; margin-top: clamp(36px, 5vw, 56px); border-top: 1px solid var(--paper); }
+.who-lines p {
+  font-size: clamp(30px, 4.6vw, 58px);
+  line-height: 1.05;
+  padding-block: clamp(16px, 2vw, 24px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Apply ---------- */
+.apply-side { display: grid; gap: 22px; }
+.mentor { display: grid; gap: 12px; border-top: 1px solid var(--ink); padding-top: 22px; margin-top: 12px; }
+.mentor .display { font-size: 40px; }
+.bio { gap: 14px; font-size: 16px; color: #3A3936; }
+
+form { display: grid; gap: 22px; min-width: 0; }
+.field { display: grid; gap: 8px; }
+.field label, fieldset legend {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.field .hint { font-size: 14px; color: var(--grey); }
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 17px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 14px 16px;
+  min-height: 52px;
+}
+textarea { min-height: 120px; resize: vertical; }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; }
+fieldset legend { padding: 0; margin-bottom: 8px; }
+.choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.choice span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-height: 64px;
+  padding: 10px 14px;
+  border: 1px solid var(--ink);
+  font-size: 15px;
+  line-height: 1.25;
+  transition: background 0.15s, color 0.15s;
+}
+.choice small { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
+.choice input:checked + span { background: var(--ink); color: var(--paper); }
+.choice input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.status {
+  border: 1px solid var(--ink);
+  padding: 16px 18px;
+  font-size: 16px;
+}
+
+/* ---------- Footer ---------- */
+footer { padding-block: 56px; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; padding-top: 32px; }
+.foot-brand { display: flex; align-items: center; gap: 18px; }
+.foot-brand svg { width: 64px; height: 77px; }
+.foot-brand .display { font-size: 64px; line-height: 0.9; }
+.foot-sign { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; max-width: 22ch; }
+.foot-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-mark { width: min(70%, 300px); justify-self: start; order: -1; }
+  .split { grid-template-columns: 1fr; }
+  .tracks { grid-template-columns: 1fr; }
+  .nav a.hide-sm { display: none; }
+}
+@media (max-width: 560px) {
+  .choices { grid-template-columns: 1fr; }
+  .choice span { min-height: 52px; }
+  .hero-mark { width: 52%; }
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="mark" viewBox="0 0 200 240">
+      <path d="M60 96 L140 96 L140 240 L60 240 Z" fill="#F4F1EA" stroke="#0B0B0B" stroke-width="3"></path>
+      <path d="M82 192 L118 192" stroke="#0B0B0B" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+      <path d="M88 192 L84 218" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" fill="none"></path>
+      <path d="M112 192 L116 218" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" fill="none"></path>
+      <path d="M76 98 C52 100 30 108 24 128 C20 160 16 200 14 240 L84 240 L80 162 L62 112 Z" fill="#0B0B0B" stroke="#F4F1EA" stroke-width="3" stroke-linejoin="round"></path>
+      <path d="M124 98 C148 100 170 108 176 128 C180 160 184 200 186 240 L116 240 L120 162 L138 112 Z" fill="#0B0B0B" stroke="#F4F1EA" stroke-width="3" stroke-linejoin="round"></path>
+      <path d="M66 104 L52 122 L58 126 L50 136 L80 164" fill="none" stroke="#F4F1EA" stroke-width="2.5" stroke-linejoin="round"></path>
+      <path d="M134 104 L148 122 L142 126 L150 136 L120 164" fill="none" stroke="#F4F1EA" stroke-width="2.5" stroke-linejoin="round"></path>
+      <path d="M44 142 C40 172 38 204 36 240" fill="none" stroke="#F4F1EA" stroke-width="2"></path>
+      <path d="M156 142 C160 172 162 204 164 240" fill="none" stroke="#F4F1EA" stroke-width="2"></path>
+      <path d="M44 205 L76 204 L76 213 L44 214 Z" fill="none" stroke="#F4F1EA" stroke-width="2" stroke-linejoin="round"></path>
+      <path d="M124 204 L156 205 L156 214 L124 213 Z" fill="none" stroke="#F4F1EA" stroke-width="2" stroke-linejoin="round"></path>
+      <path d="M128 150 L148 148" stroke="#F4F1EA" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+      <path d="M54 104 C52 88 64 76 82 74 C90 73 96 76 100 76 C104 76 110 73 118 74 C136 76 148 88 146 104 C136 106 128 104 122 98 L100 120 L78 98 C72 104 64 106 54 104 Z" fill="#F4F1EA" stroke="#0B0B0B" stroke-width="3" stroke-linejoin="round"></path>
+      <path d="M84 88 C90 83 110 83 116 88 L100 106 Z" fill="#0B0B0B"></path>
+      <path d="M64 94 C70 86 78 83 86 84" fill="none" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round"></path>
+      <path d="M136 94 C130 86 122 83 114 84" fill="none" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round"></path>
+      <path d="M96 116 L93 148" stroke="#0B0B0B" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+      <path d="M104 116 L107 148" stroke="#0B0B0B" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+      <rect x="90.5" y="146" width="5" height="13" rx="2" fill="#F4F1EA" stroke="#0B0B0B" stroke-width="1.5"></rect>
+      <rect x="104.5" y="146" width="5" height="13" rx="2" fill="#F4F1EA" stroke="#0B0B0B" stroke-width="1.5"></rect>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="band dark hero" id="top">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="Core, back to top">
+        <svg viewBox="0 0 200 240" aria-hidden="true"><use href="#mark"></use></svg>
+        <span class="display">Core</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a class="hide-sm" href="#approach">The approach</a>
+        <a class="hide-sm" href="#tracks">Two tracks</a>
+        <a class="btn ghost" href="#apply">Register interest</a>
+      </nav>
+    </div>
+    <div class="rule2"></div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="label">Mentorship · Est. 2026</p>
+        <h1 class="display hero-word">Core</h1>
+        <p class="hero-sub">A smart-casual career approach</p>
+        <p class="hero-lead"><strong>Most career advice hands you a template. This doesn't.</strong> One-on-one mentorship for people who want a career that looks and sounds like them.</p>
+        <div class="ctas">
+          <a class="btn" href="#apply">Register interest</a>
+          <a class="textlink" href="#tracks">See the two tracks</a>
+        </div>
+      </div>
+      <div class="hero-mark">
+        <svg viewBox="0 0 200 240" role="img" aria-label="The Core mark: an open blazer worn over a pullover hoodie"><use href="#mark"></use></svg>
+      </div>
+    </div>
+
+    <div class="rule2"></div>
+    <div class="hero-foot">
+      <p class="display tagline">Sharp suit. Hoodie underneath.</p>
+      <span class="label">Mentorship by Islam ElDessouky</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="band" aria-labelledby="about-h">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">The mentorship</p>
+        <h2 class="display" id="about-h">Sharp where it counts. Relaxed about the rest.</h2>
+      </div>
+      <div class="prose">
+        <p>Core is a one-on-one mentorship for people who want to build a career that looks and sounds like them. It's built on respect for the craft and a refusal to follow the script. Smart casual, in other words.</p>
+        <p>We don't chase quick fixes. We look at how you think, decide and show up, find what's quietly draining you, and build the habits and standards that let your best work happen on purpose, not by accident.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark" id="approach" aria-labelledby="approach-h">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">The approach</p>
+        <h2 class="display" id="approach-h">A method, not a template.</h2>
+      </div>
+      <div class="prose">
+        <p>Core follows a deliberate sequence, from getting honest about where you stand to performing when it counts. Each step builds on the last.</p>
+        <p>The specifics unfold in our sessions, shaped around you, your work and the turning point you're at.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="tracks" aria-labelledby="tracks-h">
+    <div class="wrap">
+      <div class="tracks-head">
+        <div class="head">
+          <p class="label">Two tracks</p>
+          <h2 class="display" id="tracks-h">Pick your tempo.</h2>
+        </div>
+      </div>
+      <div class="tracks">
+        <article class="track inverse">
+          <p class="label">12 months · 12 sessions</p>
+          <h3 class="display">The Full Track</h3>
+          <p class="track-body">A year of deep, steady work for people who see growth as a long game. We take an honest look at where you are, uncover the blind spots, and put systems in place that keep you clear and productive long after we finish.</p>
+          <ul class="facts">
+            <li><span>Format</span><span>One-on-one</span></li>
+            <li><span>Sessions</span><span>Monthly · 1 hr</span></li>
+          </ul>
+          <div class="places"><span class="label">2027 pilot places</span><span class="display">4</span></div>
+        </article>
+        <article class="track">
+          <p class="label">3 months · 3 sessions</p>
+          <h3 class="display">The TLDR Track</h3>
+          <p class="track-body">A focused sprint for people at a turning point. An honest diagnosis, then a clear 90-day plan you put into action.</p>
+          <ul class="facts">
+            <li><span>Format</span><span>One-on-one</span></li>
+            <li><span>Sessions</span><span>Monthly · 1 hr</span></li>
+          </ul>
+          <div class="places"><span class="label">2027 pilot places</span><span class="display">2</span></div>
+        </article>
+      </div>
+      <p class="pilot-note muted">The 2027 pilot cohort is free of charge. In return, I'll ask for your honest feedback when we finish.</p>
+    </div>
+  </section>
+
+  <section class="band dark" aria-labelledby="who-h">
+    <div class="wrap">
+      <div class="split">
+        <div class="head">
+          <p class="label">Who it's for</p>
+          <h2 class="display" id="who-h">People who own their outcomes.</h2>
+        </div>
+        <div class="prose">
+          <p>This program asks for honesty, effort and follow-through, including on the parts that aren't glamorous.</p>
+          <p>It won't hand you motivation. It will help you build something that doesn't depend on it.</p>
+        </div>
+      </div>
+      <div class="who-lines">
+        <p class="display">Wear the suit. Keep the hoodie.</p>
+        <p class="display">Respect the craft. Refuse the template.</p>
+        <p class="display">Earn the room. Then change it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="apply" aria-labelledby="apply-h">
+    <div class="wrap split">
+      <div class="apply-side">
+        <p class="label">Register interest</p>
+        <h2 class="display" id="apply-h">Apply for the 2027 pilot.</h2>
+        <div class="prose">
+          <p>Places are limited: four on the Full Track and two on the TLDR Track. Tell me a little about where you are, and I'll be in touch about next steps.</p>
+        </div>
+        <div class="mentor">
+          <p class="label">Your mentor</p>
+          <p class="display">Islam ElDessouky</p>
+          <div class="prose bio">
+            <p>Islam has spent nearly two decades leading creative and marketing work for one of the world's best-known brands, building big ideas that travel and then getting out of the way so local teams can make them their own.</p>
+            <p>Having lived in eight countries, he learned early that the same story lands differently depending on where you hear it. The same is true of careers. He started Core to help people stop borrowing someone else's script and write their own.</p>
+            <p>He credits his mother as his school of life. Off the clock, it's basketball, sneakers, hip-hop and a BBQ pit he has strong opinions about.</p>
+          </div>
+        </div>
+      </div>
+
+      <form id="apply-form" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" required>
+        </div>
+        <fieldset>
+          <legend>Which track?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" id="f-track-full" name="track" value="Full Track" checked><span>The Full Track<small>12 months</small></span></label>
+            <label class="choice"><input type="radio" id="f-track-tldr" name="track" value="TLDR Track"><span>The TLDR Track<small>3 months</small></span></label>
+            <label class="choice"><input type="radio" id="f-track-unsure" name="track" value="Not sure yet"><span>Not sure yet<small>Let's talk</small></span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-now">Where are you right now?</label>
+          <span class="hint" id="f-now-hint">What you're building, leading or working through at the moment.</span>
+          <textarea id="f-now" name="where" aria-describedby="f-now-hint"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-social">LinkedIn or Instagram <span class="muted">(optional)</span></label>
+          <input type="text" id="f-social" name="social" autocomplete="url">
+        </div>
+        <div class="form-foot">
+          <button class="btn" type="submit">Register interest</button>
+          <span class="hint muted" id="f-error" role="alert"></span>
+        </div>
+        <p class="status" id="f-status" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="dark band">
+  <div class="wrap">
+    <div class="rule2"></div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg viewBox="0 0 200 240" aria-hidden="true"><use href="#mark"></use></svg>
+        <span class="display">Core</span>
+      </div>
+      <p class="display foot-sign">Your career, signed in your own hand.</p>
+    </div>
+    <div class="foot-meta">
+      <span class="label">A smart-casual career approach</span>
+      <span class="label">Mentorship by Islam ElDessouky · © 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Set this to the form service address (for example https://formspree.io/f/xxxxxxx) to start collecting sign-ups.
+  var FORM_ENDPOINT = '';
+  var form = document.getElementById('apply-form');
+  var status = document.getElementById('f-status');
+  var error = document.getElementById('f-error');
+  var button = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('f-name');
+    var email = document.getElementById('f-email');
+    error.textContent = '';
+    if (!name.value.trim()) { error.textContent = 'Add your name so I know who you are.'; name.focus(); return; }
+    if (!email.value.trim() || !email.checkValidity()) { error.textContent = 'Add an email address I can reply to.'; email.focus(); return; }
+    var first = name.value.trim().split(/\s+/)[0];
+    if (!FORM_ENDPOINT) {
+      status.textContent = 'Thanks, ' + first + '. Registration opens very soon. Please check back in a few days.';
+      status.hidden = false;
+      return;
+    }
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('bad status');
+        form.reset();
+        status.textContent = 'Thanks, ' + first + '. Your interest is registered, and Islam will be in touch about next steps.';
+        status.hidden = false;
+      })
+      .catch(function () {
+        error.textContent = 'That didn\'t go through. Check your connection and try again.';
+      })
+      .then(function () {
+        button.disabled = false;
+        button.textContent = 'Register interest';
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
