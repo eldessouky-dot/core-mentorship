@@ -482,6 +482,8 @@ footer { padding-block: 56px; }
       </div>
 
       <form id="apply-form" novalidate>
+        <input type="hidden" name="_subject" value="New Core interest">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="field">
           <label for="f-name">Your name</label>
           <input type="text" id="f-name" name="name" autocomplete="name" required>
@@ -537,7 +539,7 @@ footer { padding-block: 56px; }
 <script>
 (function () {
   // Set this to the form service address (for example https://formspree.io/f/xxxxxxx) to start collecting sign-ups.
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://formspree.io/f/xrppvygl';
   var form = document.getElementById('apply-form');
   var status = document.getElementById('f-status');
   var error = document.getElementById('f-error');
