@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Core · A smart-casual career approach</title>
-<meta name="description" content="Core is a one-on-one mentorship by Islam ElDessouky for people who want a career that looks and sounds like them. Applications open for the 2027 pilot.">
+<title>JoinCore · A smart-casual career approach</title>
+<meta name="description" content="JoinCore is a one-on-one mentorship by Islam ElDessouky for people who want a career that looks and sounds like them. Applications open for the 2027 pilot.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Core · A smart-casual career approach">
-<meta property="og:description" content="Core is a one-on-one mentorship by Islam ElDessouky for people who want a career that looks and sounds like them. Applications open for the 2027 pilot.">
+<meta property="og:title" content="JoinCore · A smart-casual career approach">
+<meta property="og:description" content="JoinCore is a one-on-one mentorship by Islam ElDessouky for people who want a career that looks and sounds like them. Applications open for the 2027 pilot.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0B0B0B">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -111,6 +111,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .btn.ghost { background: transparent; color: inherit; border-color: currentColor; min-height: 44px; padding: 0 18px; font-size: 12px; }
 .dark .btn.ghost:hover { background: var(--paper); color: var(--ink); }
 
+/* ---------- JoinCore wordmark: a DM Mono "JOIN" tab stuck to the top-left of "Core" ---------- */
+.join-tab {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.5em 0.5em 0.5em 0.8em;
+  background: var(--ink);
+  color: var(--paper);
+}
+.dark .join-tab, .inverse .join-tab { background: var(--paper); color: var(--ink); }
+.wm { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.wm-sm .join-tab { font-size: 8px; }
+.wm-sm .display { font-size: 30px; line-height: 0.9; }
+.wm-md .join-tab { font-size: 11px; }
+.hero-word { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(8px, 1.2vw, 16px); margin: 0; }
+.hero-word .join-tab { font-size: clamp(14px, 1.7vw, 22px); }
+.hero-word .display { font-size: clamp(132px, 24vw, 300px); line-height: 0.82; }
+
 /* ---------- Hero ---------- */
 .hero { padding-block: 24px 40px; }
 .topbar {
@@ -122,7 +145,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
 .brand svg { width: 34px; height: 41px; }
-.brand .display { font-size: 32px; line-height: 1; }
+
 .nav { display: flex; align-items: center; gap: 28px; }
 .nav a:not(.btn) {
   font-family: var(--mono);
@@ -142,7 +165,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding-block: clamp(40px, 7vw, 88px);
 }
 .hero-copy { display: grid; gap: 22px; min-width: 0; }
-.hero-word { font-size: clamp(132px, 24vw, 300px); line-height: 0.82; }
 .hero-sub {
   font-family: var(--mono);
   font-size: clamp(14px, 1.6vw, 19px);
@@ -293,7 +315,7 @@ footer { padding-block: 56px; }
 .foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; padding-top: 32px; }
 .foot-brand { display: flex; align-items: center; gap: 18px; }
 .foot-brand svg { width: 64px; height: 77px; }
-.foot-brand .display { font-size: 64px; line-height: 0.9; }
+.foot-brand .wm .display { font-size: 64px; line-height: 0.9; }
 .foot-sign { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; max-width: 22ch; }
 .foot-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); }
 
@@ -345,9 +367,9 @@ footer { padding-block: 56px; }
 <header class="band dark hero" id="top">
   <div class="wrap">
     <div class="topbar">
-      <a class="brand" href="#top" aria-label="Core, back to top">
+      <a class="brand" href="#top" aria-label="JoinCore, back to top">
         <svg viewBox="0 0 200 240" aria-hidden="true"><use href="#mark"></use></svg>
-        <span class="display">Core</span>
+        <span class="wm wm-sm" aria-hidden="true"><span class="join-tab">Join</span><span class="display">Core</span></span>
       </a>
       <nav class="nav" aria-label="Main">
         <a class="hide-sm" href="#approach">The approach</a>
@@ -360,7 +382,7 @@ footer { padding-block: 56px; }
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="label">Mentorship · Est. 2026</p>
-        <h1 class="display hero-word">Core</h1>
+        <h1 class="hero-word" aria-label="JoinCore"><span class="join-tab" aria-hidden="true">Join</span><span class="display" aria-hidden="true">Core</span></h1>
         <p class="hero-sub">A smart-casual career approach</p>
         <p class="hero-lead"><strong>Most career advice hands you a template. This doesn't.</strong> One-on-one mentorship for people who want a career that looks and sounds like them.</p>
         <div class="ctas">
@@ -369,7 +391,7 @@ footer { padding-block: 56px; }
         </div>
       </div>
       <div class="hero-mark">
-        <svg viewBox="0 0 200 240" role="img" aria-label="The Core mark: an open blazer worn over a pullover hoodie"><use href="#mark"></use></svg>
+        <svg viewBox="0 0 200 240" role="img" aria-label="The JoinCore mark: an open blazer worn over a pullover hoodie"><use href="#mark"></use></svg>
       </div>
     </div>
 
@@ -389,7 +411,7 @@ footer { padding-block: 56px; }
         <h2 class="display" id="about-h">Sharp where it counts. Relaxed about the rest.</h2>
       </div>
       <div class="prose">
-        <p>Core is a one-on-one mentorship for people who want to build a career that looks and sounds like them. It's built on respect for the craft and a refusal to follow the script. Smart casual, in other words.</p>
+        <p>JoinCore is a one-on-one mentorship for people who want to build a career that looks and sounds like them. It's built on respect for the craft and a refusal to follow the script. Smart casual, in other words.</p>
         <p>We don't chase quick fixes. We look at how you think, decide and show up, find what's quietly draining you, and build the habits and standards that let your best work happen on purpose, not by accident.</p>
       </div>
     </div>
@@ -402,7 +424,7 @@ footer { padding-block: 56px; }
         <h2 class="display" id="approach-h">A method, not a template.</h2>
       </div>
       <div class="prose">
-        <p>Core follows a deliberate sequence, from getting honest about where you stand to performing when it counts. Each step builds on the last.</p>
+        <p>JoinCore follows a deliberate sequence, from getting honest about where you stand to performing when it counts. Each step builds on the last.</p>
         <p>The specifics unfold in our sessions, shaped around you, your work and the turning point you're at.</p>
       </div>
     </div>
@@ -475,14 +497,14 @@ footer { padding-block: 56px; }
           <p class="display">Islam ElDessouky</p>
           <div class="prose bio">
             <p>Islam has spent nearly two decades leading creative and marketing work for one of the world's best-known brands, building big ideas that travel and then getting out of the way so local teams can make them their own.</p>
-            <p>Having lived in eight countries, he learned early that the same story lands differently depending on where you hear it. The same is true of careers. He started Core to help people stop borrowing someone else's script and write their own.</p>
+            <p>Having lived in eight countries, he learned early that the same story lands differently depending on where you hear it. The same is true of careers. He started JoinCore to help people stop borrowing someone else's script and write their own.</p>
             <p>He credits his mother as his school of life. Off the clock, it's basketball, sneakers, hip-hop and a BBQ pit he has strong opinions about.</p>
           </div>
         </div>
       </div>
 
       <form id="apply-form" novalidate>
-        <input type="hidden" name="_subject" value="New Core interest">
+        <input type="hidden" name="_subject" value="New JoinCore interest">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="field">
           <label for="f-name">Your name</label>
@@ -525,7 +547,7 @@ footer { padding-block: 56px; }
     <div class="foot-grid">
       <div class="foot-brand">
         <svg viewBox="0 0 200 240" aria-hidden="true"><use href="#mark"></use></svg>
-        <span class="display">Core</span>
+        <span class="wm wm-md" aria-label="JoinCore"><span class="join-tab" aria-hidden="true">Join</span><span class="display" aria-hidden="true">Core</span></span>
       </div>
       <p class="display foot-sign">Your career, signed in your own hand.</p>
     </div>
